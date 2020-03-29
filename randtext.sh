@@ -38,7 +38,12 @@ RANDOM=$$
 num=$(( (RANDOM % 20) +1 ))
 stlen=$(getLength "$num")
 loop=1
-while [[ "$loop" -le "$1" ]]; do
+if [[ $1 -eq 0 ]]; then
+	endloop=1
+else
+	endloop=$1
+fi
+while [[ "$loop" -le "$endloop" ]]; do
 
 	for ((count=1; count<=stlen; count++)); do
 		chlen=$(getLength "10")
